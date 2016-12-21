@@ -1,18 +1,18 @@
 ;(function (root, factory) {  // eslint-disable-line
   // Making module available as AMS, CommonJS and for browser.
   /* eslint-disable no-undef */
-  if (typeof define === 'function' && define.amd) {
+  if (typeof module === 'object' && module.exports) {
+    module.exports = factory();
+  } else if (typeof define === 'function' && define.amd) {
     define([], function () {
-      return (function () { return factory(m) })
-    })
-  } else if (typeof module === 'object' && module.exports) {
-    module.exports = factory()
+      return (function () { return factory(); });
+    });
   } else {
-    root['loadGoogleMapsApi'] = factory()
+    root['loadGoogleMapsApi'] = factory();
   }
   /* eslint-enable no-undef */
 }(this, function() {
-  'use strict'
+  'use strict';
   // Start of module definition.
 
   function loader (opts) {
