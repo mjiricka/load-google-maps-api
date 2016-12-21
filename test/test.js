@@ -11,12 +11,15 @@ describe('Loader', function () {
     delete window.google;
   });
 
-  it('should load', function () {
-    gMapsLoader().then(function () {
-      assert(window.google);
-      assert(window.google.maps);
-    }, function () {
-      assert(false);
+  it('should load something', function (done) {
+    gMapsLoader().then(function (result) {
+      assert.isOk(window.google);
+      assert.isOk(window.google.maps);
+      assert.equal(result, window.google.maps);
+
+      done();
+    }).catch(function (err) {
+      done(err);
     });
   });
 
