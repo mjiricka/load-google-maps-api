@@ -1,22 +1,34 @@
-# load-google-maps-api [![npm Version](http://img.shields.io/npm/v/load-google-maps-api.svg?style=flat)](https://www.npmjs.com/package/load-google-maps-api) [![Build Status](https://img.shields.io/travis/yuanqing/load-google-maps-api.svg?branch=master&style=flat)](https://travis-ci.org/yuanqing/load-google-maps-api)
+# load-google-maps-api
 
-> A thin, [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)-returning helper for loading the [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/).
+This is a fork of https://github.com/yuanqing/load-google-maps-api, following changes were made:
+
+ * Removed ES6 features, so no Babel is needed.
+ * Added support for CommonJS, AMD and browser (as `window.loadGoogleMapsApi`).
+ * Added check whether API is already loaded (it writes warning into console if `google.maps` is already loaded).
+ * Added support for setting options globally.
+ * Parameter `v` renamed to `version`.
+ 
+Consider to use some Promise polyfill with this plugin, like https://github.com/taylorhakes/promise-polyfill.
+ 
+*Original documentation with some minor changes follows.*
+
+
+## About
+
+> A thin, [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)-returning helper for loading the [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/). Works only in browser.
+
 
 ## Usage
 
 ```js
-import loadGoogleMapsAPI from 'load-google-maps-api';
+var loadGoogleMapsAPI = require('load-google-maps-api');
 
-loadGoogleMapsAPI().then((googleMaps) => {
+loadGoogleMapsAPI().then(function (googleMaps) {
   console.log(googleMaps); //=> Object { Animation: Object, ...
-}).catch((err) => {
+}).catch(function (err) {
   console.error(err);
 });
 ```
-
-Read [the source](index.js) to understand how this works.
-
-*N.B.* Just like the Google Maps API itself, this module is client-side only.
 
 ## Why
 
@@ -24,7 +36,7 @@ Without this module, you would need to specify a named *global* callback, and pa
 
 ```html
 <script>
-window.googleMapsOnLoad = () => {
+window.googleMapsOnLoad = function () {
   // `google.maps` available here
 }
 </script>
@@ -36,7 +48,7 @@ This module abstracts this ceremony away, and fits better with [Browserify](http
 ## API
 
 ```js
-import loadGoogleMapsAPI from 'load-google-maps-api';
+var loadGoogleMapsAPI = require('load-google-maps-api');
 ```
 
 ### loadGoogleMapsAPI([opts])
@@ -55,7 +67,20 @@ Returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
   `language` | [Language](https://developers.google.com/maps/documentation/javascript/examples/map-rtl) | `undefined`
   `libraries` | [Supplemental libraries to load](https://developers.google.com/maps/documentation/javascript/libraries) | `[]`
   `timeout` | Time in milliseconds before rejecting the promise | `10000`
-  `v` | [API version](https://developers.google.com/maps/documentation/javascript/versions) | `undefined`
+  `version` | [API version](https://developers.google.com/maps/documentation/javascript/versions) | `undefined`
+
+
+### Setting global options
+
+Default parameters can be set globally for a whole application. For example:
+
+```js
+var loadGoogleMapsAPI = require('load-google-maps-api');
+
+loadGoogleMapsAPI.key = 'xxxxxxxxxxxx';
+loadGoogleMapsAPI.language = 'cs';
+```
+
 
 ## Installation
 
