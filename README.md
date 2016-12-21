@@ -15,7 +15,7 @@ Consider to use some Promise polyfill with this plugin, like https://github.com/
 
 ## About
 
-> A thin, [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)-returning helper for loading the [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/). Works only in browser.
+A thin, [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)-returning helper for loading the [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/). Works only in browser.
 
 
 ## Usage
