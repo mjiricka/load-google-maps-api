@@ -1,4 +1,6 @@
 # load-google-maps-api
+[![npm](https://img.shields.io/npm/v/npm.svg?style=plastic)](https://www.npmjs.com/package/load-google-maps-api-2)
+
 
 This is a fork of https://github.com/yuanqing/load-google-maps-api, following changes were made:
 
@@ -21,9 +23,9 @@ A thin, [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refere
 ## Usage
 
 ```js
-var loadGoogleMapsAPI = require('load-google-maps-api');
+var loadGoogleMapsApi = require('load-google-maps-api-2');
 
-loadGoogleMapsAPI().then(function (googleMaps) {
+loadGoogleMapsApi().then(function (googleMaps) {
   console.log(googleMaps); //=> Object { Animation: Object, ...
 }).catch(function (err) {
   console.error(err);
@@ -48,10 +50,10 @@ This module abstracts this ceremony away, and fits better with [Browserify](http
 ## API
 
 ```js
-var loadGoogleMapsAPI = require('load-google-maps-api');
+var loadGoogleMapsApi = require('load-google-maps-api-2');
 ```
 
-### loadGoogleMapsAPI([opts])
+### loadGoogleMapsApi([opts])
 
 Returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise). (See [Usage](#usage).)
 
@@ -75,10 +77,10 @@ Returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 Default parameters can be set globally for a whole application. For example:
 
 ```js
-var loadGoogleMapsAPI = require('load-google-maps-api');
+var loadGoogleMapsApi = require('load-google-maps-api-2');
 
-loadGoogleMapsAPI.key = 'xxxxxxxxxxxx';
-loadGoogleMapsAPI.language = 'cs';
+loadGoogleMapsApi.key = 'xxxxxxxxxxxx';
+loadGoogleMapsApi.language = 'cs';
 ```
 
 
@@ -87,8 +89,9 @@ loadGoogleMapsAPI.language = 'cs';
 Install via [npm](https://npmjs.com):
 
 ```
-$ npm i --save load-google-maps-api
+$ npm i --save load-google-maps-api-2
 ```
+
 
 ## License
 
