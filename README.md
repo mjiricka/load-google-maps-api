@@ -6,7 +6,7 @@ This is a fork of https://github.com/yuanqing/load-google-maps-api, following ch
 
  * Removed ES6 features, so no Babel is needed.
  * Added support for CommonJS, AMD and browser (as `window.loadGoogleMapsApi`).
- * Added check whether API is already loaded (it writes warning into console if `google.maps` is already loaded).
+ * Added check whether API is already loaded. (Google API writes error into console when it is loaded twice.)
  * Added support for setting options globally.
  * Parameter `v` renamed to `version`.
  
